@@ -16,11 +16,12 @@ namespace BLL
                 throw new Exception("Não é permitido um número sequencial.");
 
             if(_usuario.Senha.Length < 7 || _usuario.Senha.Length > 11)
-                throw new Exception("A senha deve ter no mínimo x e x caracteres");
+                throw new Exception("A senha deve ter no mínimo " + 7 + " e " + 11 +" caracteres");
 
             //TODO: Validar se já existe um usário com este nome.
 
             UsuarioDAL usuarioDAL = new UsuarioDAL();
+            usuarioDAL.Inserir(_usuario);
         }
         public Usuario Buscar(string _nomeUsuario)
         {

@@ -8,7 +8,7 @@ namespace DAL
         { 
             get
             {
-                return "Use ID=SA;Initial Catalog=Gestao;Data Source=.\\SQLEXPRESS2019A;Password=Senailab02";//. significa "máquina local"
+                return "User ID=SA;Initial Catalog=Gestao;Data Source=.\\SQLEXPRESS2019A;Password=Senailab02";//. significa "máquina local"
                 //return @"Use ID=SA;Initial Catalog=Gestao;Data Source=.\SQLEXPRESS2019A;Password=Senailab02"; @ diz exatamente o endereço que deverá ir
             }
         }

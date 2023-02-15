@@ -9,8 +9,8 @@ namespace DAL
     {
         public void Inserir(Usuario _usuario)
         {
-            SqlConnection cn = new SqlConnection();
 
+            SqlConnection cn = new SqlConnection();
             try
             {
                 cn.ConnectionString = Conexao.StringDeConexao;
@@ -36,7 +36,7 @@ namespace DAL
             }
             finally
             {
-                cn.Open();
+                cn.Close();
             }
         }
         public Usuario Buscar(string _nomeUsuario)
