@@ -1,6 +1,7 @@
 ﻿using Models;
 using BLL;
 using System.Net.Mail;
+using System;
 
 namespace ConsoleAppPrincipal
 {
@@ -12,34 +13,40 @@ namespace ConsoleAppPrincipal
             {
                 Usuario usuario = new Usuario();
                 UsuarioBLL usuarioBLL = new UsuarioBLL();
-                //char opclaco;
                 string opclaco;
+                int i = 1;
                 do
                 {
-                    Console.WriteLine("Informe o nome do usuário:");
+                    Console.Clear();
+                    Console.WriteLine("Informe o nome do " + i + "° usuário desta sessão:");
                     usuario.Nome = Console.ReadLine();
+
                     Console.WriteLine("Informe o Apelido(Nome de usuário): ");
                     usuario.NomeUsuario = Console.ReadLine();
-                    Console.WriteLine("O usuário está Ativo? [S]-Sim ou [N]-Não");
-                    char opcinativo = Convert.ToChar(Console.ReadLine());
 
-                    if (opcinativo != 's')
+                    Console.WriteLine("O usuário está Ativo? [S]-Sim ou [N]-Não");
+                    char opcinativo = Convert.ToChar(Console.ReadLine()); //ToUpper() converte tudo para maiúsculo
+
+                    if (opcinativo != 's' || opcinativo != 'S')
                         usuario.Ativo = true;
                             else usuario.Ativo = false;
                             
-                    Console.WriteLine("Informe o email do usuário");
+                     Console.WriteLine("Informe o email do usuário");
                     usuario.Email = Console.ReadLine();
+
                     Console.WriteLine("Informe o CPF: ");
                     usuario.CPF = Console.ReadLine();
+
                     Console.WriteLine("Informe a senha do usuário: ");
                     usuario.Senha = Console.ReadLine();
 
-                    Console.WriteLine("Deseja continuar? [S]-Sim ou [N]-Não");
-
+                    Console.WriteLine("Deseja continuar? [S]-Sim ou [N]-Não\n");
                     opclaco = Console.ReadLine();
-                } while (opclaco == "");
+                    Console.WriteLine("\n");
 
-                usuarioBLL.Inserir(usuario);
+                    usuarioBLL.Inserir(usuario);
+                    i++;
+                } while (opclaco == "S" || opclaco == "s");
 
             }
             catch (Exception ex)
