@@ -13,6 +13,8 @@ namespace ConsoleAppPrincipal
             {
                 Usuario usuario = new Usuario();
                 UsuarioBLL usuarioBLL = new UsuarioBLL();
+                //criando o objeto permissao
+                Permissao permissao = new Permissao(); 
                 string opclaco;
                 int i = 1;
                 do
@@ -31,7 +33,7 @@ namespace ConsoleAppPrincipal
                         usuario.Ativo = true;
                             else usuario.Ativo = false;
                             
-                     Console.WriteLine("Informe o email do usuário");
+                    Console.WriteLine("Informe o email do usuário");
                     usuario.Email = Console.ReadLine();
 
                     Console.WriteLine("Informe o CPF: ");
