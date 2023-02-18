@@ -11,16 +11,21 @@ namespace ConsoleAppPrincipal
         {
             try
             {
-                Usuario usuario = new Usuario();
+                /*Usuario usuario = new Usuario();
                 UsuarioBLL usuarioBLL = new UsuarioBLL();
                 //criando o objeto permissao
-                Permissao permissao = new Permissao(); 
+                Permissao permissao = new Permissao();
+                PermissaoBLL permissaoBLL = new PermissaoBLL();*/
+                //Conexão com GrupoUsuario
+                GrupoUsuario grupousuario = new GrupoUsuario();
+                GrupoUsuarioBLL grupoUsuarioBLL = new GrupoUsuarioBLL();
+
                 string opclaco;
                 int i = 1;
                 do
                 {
                     Console.Clear();
-                    Console.WriteLine("Informe o nome do " + i + "° usuário desta sessão:");
+                    /*Console.WriteLine("Informe o nome do " + i + "° usuário desta sessão:");
                     usuario.Nome = Console.ReadLine();
 
                     Console.WriteLine("Informe o Apelido(Nome de usuário): ");
@@ -31,8 +36,8 @@ namespace ConsoleAppPrincipal
 
                     if (opcinativo != 's' || opcinativo != 'S')
                         usuario.Ativo = true;
-                            else usuario.Ativo = false;
-                            
+                    else usuario.Ativo = false;
+
                     Console.WriteLine("Informe o email do usuário");
                     usuario.Email = Console.ReadLine();
 
@@ -42,11 +47,21 @@ namespace ConsoleAppPrincipal
                     Console.WriteLine("Informe a senha do usuário: ");
                     usuario.Senha = Console.ReadLine();
 
+                    //adicionando a descrição para o usuário
+                    Console.WriteLine("Insira a descrição da permissão de usuário: ");
+                    permissao.Descricao = Console.ReadLine();*/
+                    //
+                    Console.WriteLine("Insira o nome do grupo de usuário: ");
+                    grupousuario.NomeGrupo = Console.ReadLine();
+
+                    /*usuarioBLL.Inserir(usuario);
+                    permissaoBLL.Inserir(permissao);*/
+                    grupoUsuarioBLL.Inserir(grupousuario);
+
+
                     Console.WriteLine("Deseja continuar? [S]-Sim ou [N]-Não\n");
                     opclaco = Console.ReadLine();
                     Console.WriteLine("\n");
-
-                    usuarioBLL.Inserir(usuario);
                     i++;
                 } while (opclaco == "S" || opclaco == "s");
 

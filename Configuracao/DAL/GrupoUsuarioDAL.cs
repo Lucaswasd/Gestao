@@ -1,13 +1,11 @@
 ﻿using Models;
-using System.Data;
 using System.Data.SqlClient;
-using System.Reflection.Metadata.Ecma335;
 
 namespace DAL
 {
-    public class PermissaoDAL
+    public class GrupoUsuarioDAL
     {
-        public void Inserir(Permissao _permissao)
+        public void Inserir(GrupoUsuario _grupousuario)
         {
             SqlConnection cn = new SqlConnection();
             try
@@ -15,12 +13,11 @@ namespace DAL
                 cn.ConnectionString = Conexao.StringDeConexao;
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = cn;
-                cmd.CommandText = @"INSERT INTO Permissao(Descricao) 
-                Values(@Descricao)";
+                cmd.CommandText = @"INSERT INTO GrupoUsuario(NomeGrupo)
+                Values(@NomeGrupo)";
 
                 cmd.CommandType = System.Data.CommandType.Text;
-                cmd.Parameters.AddWithValue("@Descricao", _permissao.Descricao);
-
+                cmd.Parameters.AddWithValue("@NomeGruop", _grupousuario.NomeGrupo);
 
                 cn.Open();
                 cmd.ExecuteScalar();
@@ -28,7 +25,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                throw new Exception("Ocorreu um erro ao tentar inserir uma permissão no banco: " + ex.Message);
+                throw new Exception("Ocorreu um erro ao tentar cadrastar o Nome do Grupo: " + ex.Message);
             }
             finally
             {

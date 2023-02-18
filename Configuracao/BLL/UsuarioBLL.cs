@@ -6,7 +6,7 @@ namespace BLL
     {
         public void Inserir(Usuario _usuario)
         {
-            if (_usuario.NomeUsuario.Length <= 3 || _usuario.NomeUsuario.Length >= 50)
+           /* if (_usuario.NomeUsuario.Length <= 3 || _usuario.NomeUsuario.Length >= 50)
                 throw new Exception("O nome de usuário deve ter mais de três caracteres");
 
             if (_usuario.NomeUsuario.Contains(" "))
@@ -16,7 +16,7 @@ namespace BLL
                 throw new Exception("Não é permitido um número sequencial.");
 
             if(_usuario.Senha.Length < 7 || _usuario.Senha.Length > 11)
-                throw new Exception("A senha deve ter no mínimo " + 7 + " e " + 11 +" caracteres");
+                throw new Exception("A senha deve ter no mínimo " + 7 + " e " + 11 +" caracteres");*/
 
             //TODO: Validar se já existe um usário com este nome.
 

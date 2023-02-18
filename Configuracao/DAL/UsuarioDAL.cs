@@ -6,7 +6,7 @@ using System.Reflection.Metadata.Ecma335;
 namespace DAL
 {
     public class UsuarioDAL
-    {
+    { 
         public void Inserir(Usuario _usuario)
         {
 
