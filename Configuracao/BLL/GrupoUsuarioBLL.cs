@@ -1,17 +1,17 @@
-﻿using DAL;
-using Models;
+﻿using Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace BLL
 {
     public class GrupoUsuarioBLL
     {
-        public void Inserir(GrupoUsuario _grupousuario)
+        public List<GrupoUsuario> BuscarPorNome(string text)
         {
-            if (_grupousuario.NomeGrupo.Length <= 10 || _grupousuario.NomeGrupo.Length > 50)
-                throw new Exception("A descriçção do Grupo de Usuário deve ter mais de 10 caracteres");
-
-            GrupoUsuarioDAL grupoUsuarioDAL = new GrupoUsuarioDAL();
-            grupoUsuarioDAL.Inserir(_grupousuario);
+            throw new NotImplementedException();
         }
     }
 }

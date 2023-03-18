@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL
+namespace Models
 {
-    internal class GrupoUsuarioDAL
+    public class Constantes
     {
-
+        public static int IdUsuarioLogado;
     }
 }
