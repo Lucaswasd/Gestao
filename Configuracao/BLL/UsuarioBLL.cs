@@ -10,7 +10,9 @@ namespace BLL
     {
         public void Inserir(Usuario _usuario, string _confirmacaoDeSenha)
         {
-            ValidarPermissao(11, 4);
+            ValidarDadosPermissao(1);
+            ValidarDados
+            //ValidarPermissao(11, 4);
             ValidarDados(_usuario, _confirmacaoDeSenha);
 
             Usuario usuario = new Usuario();
@@ -24,8 +26,8 @@ namespace BLL
 
         private void ValidarPermissao(int _idPermissao)
         {
-            if(!new UsuarioDAL().ValidarPermissao(Constantes.IdUsuarioLogado, _idPermissao))
-                throw new Exception("Você"
+            if (!new UsuarioDAL().ValidarPermissao(Constantes.IdUsuarioLogado, _idPermissao))
+                throw new Exception("Você não tem permissão para alterar.");
         }
 
         public Usuario BuscarPorNomeUsuario(string _nomeUsuario)
@@ -131,6 +133,7 @@ namespace BLL
 
         //copiar o "ExisteRelacionamento" do professor
         {
+            ValidarPermissao(10);
             if (new UsuarioDAL().ExisteRelacionamento(_idUsuario, _idGrupoUsuario))
                 return;
 

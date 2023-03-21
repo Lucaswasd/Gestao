@@ -194,8 +194,8 @@ namespace DAL
             {
                 throw new Exception("Ocorreu um erro ao tentar excluir usuário no banco: " + ex.Message);
             }
-            finally 
-            { 
+            finally
+            {
                 cn.Close();
             }
         }
@@ -242,6 +242,9 @@ namespace DAL
         }
         public bool ValidarPermissao(int _idUsuario, int _idPermissao)
         {
+            List<Usuario> usuarios = new List<Usuario>();
+            Usuario usuario;
+
             SqlConnection cn = new SqlConnection();
             SqlCommand cmd = new SqlCommand();
 
@@ -249,36 +252,25 @@ namespace DAL
             {
                 cn.ConnectionString = Conexao.StringDeConexao;
                 cmd.Connection = cn;
-                cmd.CommandText = @"SELECT TOP 1 1 AS Resultado FROM UsuarioGrupoUsuario
+                cmd.CommandText = @"SELECT TOP 1 AS Resultado FROM UsuarioGrupoUsuario
                                     INNER JOIN  PermissaoGrupoUsuario
                                     ON UsuarioGrupoUsuario.Id_Grupo Usuario = PermissaoGrupoUsuario.Id_GrupoUsuario
                                     WHERE UsuarioGrupoUsuario.Id_Usuario = @Id_Usuario
-                                    AND PermissaoGrupoUsuario.Id_Permissao = @Id_Usuario;"
+                                    AND PermissaoGrupoUsuario.Id_Permissao = @Id_Usuario";
 
 
-                cmd.Parameters.AddWithValue("@NomeUsuario", _nomeUsuario);
                 cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Parameters.AddWithValue("@IdUsuario", _idUsuario);
+                cmd.Parameters.AddWithValue("@IdPermissao", _idPermissao);
                 cn.Open();
 
 
                 using (SqlDataReader rd = cmd.ExecuteReader())
                 {
-                    while (rd.Read())
-                    {
-                        usuario = new Usuario();
-                        usuario.Id = Convert.ToInt32(rd["Id"]);
-                        usuario.Nome = rd["Nome"].ToString();
-                        usuario.NomeUsuario = rd["NomeUsuario"].ToString();
-                        usuario.CPF = rd["CPF"].ToString();
-                        usuario.Email = rd["Email"].ToString();
-                        usuario.Ativo = Convert.ToBoolean(rd["Ativo"]);
-
-                        //GrupoUsuarioDAL grupoUsuarioDAL = new GrupoUsuarioDAL();
-                        //usuario.GrupoUsuarios = grupoUsuarioDAL.BuscarPorIdUsuario(usuario.Id);
-                        //usuarios.Add(usuario);
-                    }
+                    if (rd.Read())
+                        return true;
                 }
-                return usuario;
+                return false;
 
             }
             catch (Exception ex)
