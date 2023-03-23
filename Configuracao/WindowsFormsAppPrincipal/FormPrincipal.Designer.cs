@@ -45,7 +45,7 @@
             this.cadastroToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(800, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -58,7 +58,7 @@
             this.clientesToolStripMenuItem,
             this.fornecedoresToolStripMenuItem});
             this.cadastroToolStripMenuItem.Name = "cadastroToolStripMenuItem";
-            this.cadastroToolStripMenuItem.Size = new System.Drawing.Size(82, 26);
+            this.cadastroToolStripMenuItem.Size = new System.Drawing.Size(82, 24);
             this.cadastroToolStripMenuItem.Text = "Cadastro";
             this.cadastroToolStripMenuItem.Click += new System.EventHandler(this.cadastroToolStripMenuItem_Click);
             // 
@@ -74,12 +74,14 @@
             this.gruposDeUsuáriosToolStripMenuItem.Name = "gruposDeUsuáriosToolStripMenuItem";
             this.gruposDeUsuáriosToolStripMenuItem.Size = new System.Drawing.Size(314, 26);
             this.gruposDeUsuáriosToolStripMenuItem.Text = "Grupos de usuários";
+            this.gruposDeUsuáriosToolStripMenuItem.Click += new System.EventHandler(this.gruposDeUsuáriosToolStripMenuItem_Click);
             // 
             // permissõesDeGruposDeUsuáriosToolStripMenuItem
             // 
             this.permissõesDeGruposDeUsuáriosToolStripMenuItem.Name = "permissõesDeGruposDeUsuáriosToolStripMenuItem";
             this.permissõesDeGruposDeUsuáriosToolStripMenuItem.Size = new System.Drawing.Size(314, 26);
             this.permissõesDeGruposDeUsuáriosToolStripMenuItem.Text = "Permissões de grupos de usuários";
+            this.permissõesDeGruposDeUsuáriosToolStripMenuItem.Click += new System.EventHandler(this.permissõesDeGruposDeUsuáriosToolStripMenuItem_Click);
             // 
             // clientesToolStripMenuItem
             // 

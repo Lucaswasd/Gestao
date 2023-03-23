@@ -181,7 +181,8 @@ namespace DAL
                 cn.ConnectionString = Conexao.StringDeConexao;
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = cn;
-                cmd.CommandText = @"DELETE FROM Usuario WHERE Id = @Id";
+                cmd.CommandText = @"DELETE FROM UsuarioGrupoUsuario WHERE Id_Usuario = @Id
+                                    DELETE FROM Usuario WHERE Id = @Id";
 
                 cmd.CommandType = System.Data.CommandType.Text;
                 cmd.Parameters.AddWithValue("@Id", _id);
@@ -242,8 +243,6 @@ namespace DAL
         }
         public bool ValidarPermissao(int _idUsuario, int _idPermissao)
         {
-            List<Usuario> usuarios = new List<Usuario>();
-            Usuario usuario;
 
             SqlConnection cn = new SqlConnection();
             SqlCommand cmd = new SqlCommand();

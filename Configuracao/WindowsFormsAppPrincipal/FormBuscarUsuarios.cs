@@ -40,7 +40,7 @@ namespace WindowsFormsAppPrincipal
             }
         }
 
-        
+
 
         private void buttonAdicionarUsuario_Click(object sender, EventArgs e)
         {
@@ -96,17 +96,20 @@ namespace WindowsFormsAppPrincipal
 
         private void buttonAdicionarGrupoUsuario_Click(object sender, EventArgs e)
         {
-            using (FormConsultarGrupoUsuario frm = new FormConsultarGrupoUsuario())
+            try
             {
-                frm.ShowDialog();
+                using (FormConsultarGrupoUsuario frm = new FormConsultarGrupoUsuario())
+                {
+                    frm.ShowDialog();
+                    UsuarioBLL usuarioBLL = new UsuarioBLL();
+                    int idUsuario = ((Usuario)usuarioBindingSource.Current).Id;
+                    usuarioBLL.AdicionarGrupo(idUsuario, frm.Id);
+                }
 
-                if (frm.Id == 0)
-                    return;
-
-                UsuarioBLL usuarioBLL = new UsuarioBLL();
-                int idUsuario = ((Usuario)usuarioBindingSource.Current).Id;
-                usuarioBLL.AdicionarGrupo(idUsuario, frm.Id);
-
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 

@@ -10,9 +10,7 @@ namespace BLL
     {
         public void Inserir(Usuario _usuario, string _confirmacaoDeSenha)
         {
-            ValidarDadosPermissao(1);
-            ValidarDados
-            //ValidarPermissao(11, 4);
+            ValidarDadosPermissao(2);
             ValidarDados(_usuario, _confirmacaoDeSenha);
 
             Usuario usuario = new Usuario();
@@ -24,10 +22,10 @@ namespace BLL
             usuarioDAL.Inserir(_usuario);
         }
 
-        private void ValidarPermissao(int _idPermissao)
+        public void ValidarPermissao(int _idPermissao)
         {
             if (!new UsuarioDAL().ValidarPermissao(Constantes.IdUsuarioLogado, _idPermissao))
-                throw new Exception("Você não tem permissão para alterar.");
+                throw new Exception("Você não tem permissão para executar esta operação Procure o administrador do sistema.'.");
         }
 
         public Usuario BuscarPorNomeUsuario(string _nomeUsuario)
@@ -129,12 +127,9 @@ namespace BLL
         }
 
         public void AdicionarGrupo(int _idUsuario, int _idGrupoUsuario)
-        //não implementado no usuarioDAL
-
-        //copiar o "ExisteRelacionamento" do professor
         {
             ValidarPermissao(10);
-            if (new UsuarioDAL().ExisteRelacionamento(_idUsuario, _idGrupoUsuario))
+            if (!new UsuarioDAL().ExisteRelacionamento(_idUsuario, _idGrupoUsuario))
                 return;
 
             UsuarioDAL usuarioDAL = new UsuarioDAL();
@@ -144,6 +139,11 @@ namespace BLL
         public void RemoverGrupoUsuario(int _idUsuario, int _idGrupoUsuario)
         {
             new UsuarioDAL().RemoverGrupoUsuario(_idUsuario, _idGrupoUsuario);
+        }
+        public void ValidarDadosPermissao(int _idPermissao)
+        {
+            if (!new UsuarioDAL().ValidarPermissao(Constantes.IdUsuarioLogado, _idPermissao))
+                throw new Exception("Você não tem permissão de executar esta operação. Procure o administrador do sistema.");
         }
     }
 }

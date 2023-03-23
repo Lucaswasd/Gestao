@@ -37,8 +37,13 @@
             this.buttonBuscar = new System.Windows.Forms.Button();
             this.textBoxBuscar = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.permissaoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.permissaoDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grupoUsuarioBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grupoUsuarioDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.permissaoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.permissaoDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // grupoUsuarioBindingSource
@@ -61,7 +66,7 @@
             this.grupoUsuarioDataGridView.RowHeadersVisible = false;
             this.grupoUsuarioDataGridView.RowHeadersWidth = 51;
             this.grupoUsuarioDataGridView.RowTemplate.Height = 24;
-            this.grupoUsuarioDataGridView.Size = new System.Drawing.Size(762, 320);
+            this.grupoUsuarioDataGridView.Size = new System.Drawing.Size(762, 145);
             this.grupoUsuarioDataGridView.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn1
@@ -121,11 +126,38 @@
             this.label1.Text = "Consultar grupos de usuários";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // permissaoBindingSource
+            // 
+            this.permissaoBindingSource.DataSource = typeof(Models.Permissao);
+            // 
+            // permissaoDataGridView
+            // 
+            this.permissaoDataGridView.AutoGenerateColumns = false;
+            this.permissaoDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.permissaoDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn2});
+            this.permissaoDataGridView.DataSource = this.permissaoBindingSource;
+            this.permissaoDataGridView.Location = new System.Drawing.Point(26, 271);
+            this.permissaoDataGridView.Name = "permissaoDataGridView";
+            this.permissaoDataGridView.RowHeadersWidth = 51;
+            this.permissaoDataGridView.RowTemplate.Height = 24;
+            this.permissaoDataGridView.Size = new System.Drawing.Size(762, 146);
+            this.permissaoDataGridView.TabIndex = 6;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Descricao";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Descricao";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 125;
+            // 
             // FormConsultarGrupoUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(812, 484);
+            this.ClientSize = new System.Drawing.Size(812, 571);
+            this.Controls.Add(this.permissaoDataGridView);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxBuscar);
             this.Controls.Add(this.buttonBuscar);
@@ -142,6 +174,8 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormConsultarGrupoUsuario_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.grupoUsuarioBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grupoUsuarioDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.permissaoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.permissaoDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -157,5 +191,8 @@
         private System.Windows.Forms.Button buttonBuscar;
         private System.Windows.Forms.TextBox textBoxBuscar;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.BindingSource permissaoBindingSource;
+        private System.Windows.Forms.DataGridView permissaoDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
     }
 }

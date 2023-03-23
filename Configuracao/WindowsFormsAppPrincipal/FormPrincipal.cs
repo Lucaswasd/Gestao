@@ -15,7 +15,6 @@ namespace WindowsFormsAppPrincipal
         public FormPrincipal()
         {
             InitializeComponent();
-            Constantes.IdUsuarioLogado();
         }
 
         private void cadastroToolStripMenuItem_Click(object sender, EventArgs e)
@@ -31,5 +30,23 @@ namespace WindowsFormsAppPrincipal
             }
         }
 
+        
+
+        private void permissõesDeGruposDeUsuáriosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (FormPermissao frm = new FormPermissao())
+            {
+                frm.ShowDialog();
+            }
+        }
+
+        private void gruposDeUsuáriosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (FormGrupoUsuario frm = new FormGrupoUsuario())
+            {
+                frm.ShowDialog();
+            }
+
+        }
     }
 }
